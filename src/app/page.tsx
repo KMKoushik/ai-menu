@@ -64,7 +64,7 @@ export default function Home() {
   }
 
   return (
-    <main className="h-full p-5">
+    <main className="h-full p-5 bg-black text-white">
       <div className="flex justify-center">
         <div className="max-w-4xl w-full">
           <div className="py-5 flex justify-between border-gray-800 border-b">
