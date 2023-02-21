@@ -9,10 +9,10 @@ import makeAnimated from 'react-select/animated';
 import { IoLogoGithub } from "react-icons/io5";
 
 
-async function fetchData(cuisine: string, ingredients: string) {
+async function fetchData(cuisine: string, ingredients: string, instruction?: string) {
   // getMenu
   //mockGetMenu
-  const res = await fetch(`/api/getMenu?cuisine=${cuisine}&ingredients=${ingredients}`)
+  const res = await fetch(`/api/getMenu?cuisine=${cuisine}&ingredients=${ingredients}&instruction=${instruction}`)
 
   const { data } = await res.json() as { data: string }
   return data.split('\n').filter(itr => itr !== '')
@@ -51,12 +51,12 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [selectedCuisine, setSelectedCuisine] = useState<Array<{ label: string, value: string }>>([])
   const [selectedIngredients, setSelectedIngredients] = useState<Array<{ label: string, value: string }>>([])
-
+  const [instruction, setInstruction] = useState('')
 
   const getMenu = () => {
     setLoading(true)
     console.log(selectedCuisine.map(c => c.value).join(','))
-    fetchData(selectedCuisine.map(c => c.value).join(','), selectedIngredients.map(c => c.value).join(','))
+    fetchData(selectedCuisine.map(c => c.value).join(','), selectedIngredients.map(c => c.value).join(','), instruction)
       .then(data => {
         setMenu(data)
       })
@@ -159,6 +159,15 @@ export default function Home() {
               onChange={(e) => { setSelectedIngredients(e as Array<{ label: string, value: string }>) }}
               placeholder="Add Ingredients"
               instanceId="ingredients"
+            />
+          </div>
+
+          <div className="mt-10">
+            <p className="mb-2">Any other instruction</p>
+            <textarea
+              onChange={(e) => setInstruction(e.target.value)}
+              className="w-full rounded-md bg-black border border-gray-400 p-2"
+              placeholder="Ex. Make it gluten free"
             />
           </div>
 

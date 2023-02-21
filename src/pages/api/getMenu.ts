@@ -23,12 +23,14 @@ export default async function handler(
   try {
     const ingredientText = ingredients ? `with ingredients \"${ingredients}\"` : ''
     const cuisineText = cuisine ? `in ${cuisine} cuisine` : ''
+    const prompt = `Suggest 5 dishes to cook ${ingredientText} ${cuisineText}. Don't display any links and each dish more than 50 words. ${instruction}`
+    console.log(prompt)
     const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers,
       body: JSON.stringify({
         model: 'text-davinci-003',
-        prompt: `Suggest 5 dishes to cook ${ingredientText} ${cuisineText}. Don't display any links and each dish more than 50 words. ${instruction}`,
+        prompt,
         temperature: 0.5,
         max_tokens: 550
       })
