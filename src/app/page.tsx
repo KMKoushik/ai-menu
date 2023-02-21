@@ -69,7 +69,7 @@ export default function Home() {
         <div className="max-w-4xl w-full">
           <div className="py-5 flex justify-between border-gray-800 border-b">
             <div>
-              <h2 className="text-2xl">AI Menu</h2>
+              <h2 className="text-2xl">🍜 AI Menu</h2>
             </div>
             <div>
               <a target="_blank" href="https://github.com/KMKoushik/ai-menu" rel="noreferrer" className="flex items-center border p-2 rounded-3xl border-gray-500 text-sm hover:bg-gray-800">
@@ -182,7 +182,7 @@ export default function Home() {
           </div>
           <div>
             <p className="text-center mt-10 text-gray-400 text-lg pb-5">
-              Made with <span className="text-gray-300">Open AI, Vercel</span> and ❤️ by <a className="text-cyan-400" target="_blank" href="https://twitter.com/KM_Koushik_" rel="noreferrer">Koushik</a>
+              Made with <span className="text-gray-300">Open AI, NextJs</span> and ❤️ by <a className="text-cyan-400" target="_blank" href="https://twitter.com/KM_Koushik_" rel="noreferrer">Koushik</a>
             </p>
           </div>
         </div>

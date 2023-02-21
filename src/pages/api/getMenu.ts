@@ -29,7 +29,7 @@ export default async function handler(
       body: JSON.stringify({
         model: 'text-davinci-003',
         prompt: `Suggest 5 dishes to cook ${ingredientText} ${cuisineText}. Don't display any links and each dish more than 50 words. ${instruction}`,
-        temperature: 0,
+        temperature: 0.5,
         max_tokens: 550
       })
     })
